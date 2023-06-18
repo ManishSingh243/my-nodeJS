@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const routes = (req, res) => {
+const requestHandler = (req, res) => {
     const url = req.url
     const method = req.method
 
@@ -29,4 +29,12 @@ const routes = (req, res) => {
       }
     }
 
-    module.exports = routes
+    // module.exports = requestHandler
+
+    /* module.exports = {
+        handler : requestHandler,
+        text : "Hello Node js"
+    } */
+
+    module.exports.handler = requestHandler;
+    module.exports.text = "Hello Node js" 
