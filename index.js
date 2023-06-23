@@ -1,9 +1,17 @@
 const http = require('http')
 
-const routes = require('./routes')
+const express = require('express')
 
-const server = http.createServer(routes.handler)
+const app = express()
 
-console.log(routes.text)
+app.use((req, res, next)=>{
+  console.log("Hello, I'm from Mumbai")
+  next()
+})
 
-server.listen(4000)
+app.use((req, res, next)=>{
+  console.log("Hello, I'm from India")
+  res.send("<h1>Hello!!!</h1>")
+})
+
+app.listen(4000)
